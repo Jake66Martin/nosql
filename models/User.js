@@ -17,7 +17,7 @@ const userSchema = new Schema(
         "Invalid email format",
       ],
     },
-    thoughts: [{ type: Schema.Types.ObjectId, ref: "thoughts" }],
+    thoughts: [{ type: Schema.Types.ObjectId, ref: "thought" }],
     friends: [{ type: Schema.Types.ObjectId, ref: "friends" }],
   },
   {
