@@ -12,4 +12,9 @@ connection.once('open', async () => {
 
     await dropCollectionIfExists(User)
     await dropCollectionIfExists(Thought)
+
+    await User.collection.insertMany(comments);
+    await Thought.collection.insertMany(comments);
+
+
 })
