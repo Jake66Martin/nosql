@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models')
-const data = require('./data')
+const users = require('./data')
 
 const dropCollectionIfExists = async(model)=>{
     if ( await model.exists()) {
@@ -11,10 +11,10 @@ const dropCollectionIfExists = async(model)=>{
 connection.once('open', async () => {
 
     await dropCollectionIfExists(User)
-    await dropCollectionIfExists(Thought)
+   
 
-    await User.collection.insertMany(comments);
-    await Thought.collection.insertMany(comments);
+    await User.collection.insertMany(users);
+    
 
 
 })
