@@ -29,4 +29,20 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  async updateUser(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.body.userId },
+        { username: req.body.username, email: req.body.email },
+        { new: true },
+      )
+      res.json(user);
+      
+
+    } catch (err) {
+      res.status(500).json(err);
+
+    }
+  },
 };
