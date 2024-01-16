@@ -16,10 +16,11 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.params.userId })
         .populate("thoughts")
-        .populate("friends");
+        .populate("friends")
       res.json(user);
     } catch (err) {
       res.status(500).json(err);
+      console.log(err)
     }
   },
 
