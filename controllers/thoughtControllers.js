@@ -46,4 +46,17 @@ module.exports = {
           res.status(500).json(err);
         }
       },
+
+      async updateThought(req, res) {
+        try {
+          const thoughts = await Thought.findOneAndUpdate(
+            { _id: req.body.thoughtId },
+            { thoughtText: req.body.thoughtText},
+            { new: true }
+          );
+          res.json(thoughts);
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      },
 }
