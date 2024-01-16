@@ -65,10 +65,23 @@ module.exports = {
         _id: req.params.thoughtId,
       });
 
-    
-      res.json(thought)
+      res.json(thought);
     } catch (err) {
       res.status(500).json(err);
+    }
+  },
+
+  async createReaction(req, res) {
+    try {
+      const thought = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $addToSet: { reactions: req.body.reaction } },
+        { new: true }
+      );
+      res.json(thought);
+    } catch (err) {
+      res.status(500).json(err);
+
     }
   },
 };
