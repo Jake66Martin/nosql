@@ -83,5 +83,18 @@ module.exports = {
     } catch (err) {
         res.status(500).json(err);
     }
+},
+
+async deleteReaction(req, res) {
+  try {
+      const thought = await Thought.findOneAndUpdate(
+          { _id: req.params.thoughtId },
+          { $pull: { reactions: req.body } },
+          { runValidators: true, new: true }
+      );
+      res.json(thought);
+  } catch (err) {
+      res.status(500).json(err);
+  }
 }
 };
