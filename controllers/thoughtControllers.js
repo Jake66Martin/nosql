@@ -1,5 +1,7 @@
+
 const User = require("../models/User");
 const Thought = require("../models/Thought");
+const reactionSchema = require('../models/Reaction')
 
 module.exports = {
   async getAllThoughts(req, res) {
@@ -73,9 +75,11 @@ module.exports = {
 
   async createReaction(req, res) {
     try {
+      
+      const reaction = await new reactionSchema(req.body)
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { reactions: req.body.reaction } },
+        { $addToSet: { reactions: reaction._id } },
         { new: true }
       );
       res.json(thought);
