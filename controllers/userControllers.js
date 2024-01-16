@@ -12,7 +12,10 @@ module.exports = {
 
   async getUserById(req, res) {
     try {
-      const user = await User.findOne({ _id: req.params.userId });
+      const user = await User.findOne({ _id: req.params.userId })
+      .populate('thoughts')
+      .populate('friends')
+      ;
       res.json(user);
     } catch (err) {
       res.status(500).json(err);
