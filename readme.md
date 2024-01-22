@@ -39,5 +39,5 @@ You can also contact me with any further questions at jake66martin@hotmail.com
 ![Screenshot (82)](https://github.com/Jake66Martin/nosql/assets/139023505/2631537b-320b-4aa3-acdf-16c20e608c17)
 
 ## <h2>Video walkthrough link</h2>
-chrome-extension://mmeijimgabbpbgpdklnllpncmdofkcpn/app.html#/files/a32c5d82-87c0-4384-y0c0-53da0431e3cf
+https://drive.google.com/file/d/15lLsDt2i-3KQfjNqAFaNfj--TJsfPx1p/view
 
